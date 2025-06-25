@@ -40,7 +40,7 @@ function App(): React.ReactElement | null {
           </div>
 
           {/* Main */}
-          <div className="rounded-xl bg-mocha-mantle border-1 border-mocha-teal/10 size-full p-3">
+          <div className="w-full p-3">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/drivers" element={<Drivers />} />
@@ -80,8 +80,8 @@ function NavButton({ to, Icon }: NavButtonProps): React.ReactElement | null {
          text-mocha-text/75 rounded-xl border-1 transition-colors
          ${
            isActive
-             ? 'bg-mocha-yellow/10 border-mocha-teal/40 text-mocha-teal'
-             : 'border-transparent hover:bg-mocha-yellow/10 hover:border-mocha-teal/40 hover:text-mocha-teal active:bg-mocha-teal/15 active:border-mocha-teal/20'
+             ? 'bg-accent/10 border-accent/40 text-accent'
+             : 'border-transparent hover:bg-accent/20 hover:text-accent active:bg-accent/15 active:border-accent/20'
          }`
       }
     >

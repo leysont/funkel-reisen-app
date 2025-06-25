@@ -213,7 +213,7 @@ code {
 
 @theme {
 
-  --color-accent: var( --color-mocha-blue);
+  --color-accent: var( --color-mocha-sapphire);
   /* Window native window controls */
   --color-titlebar-hover: #313139;
   --color-titlebar-active: #4f4f56;
