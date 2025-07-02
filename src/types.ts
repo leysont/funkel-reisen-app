@@ -1,43 +1,53 @@
 export type FunkelTableName =
   | 'Busfahrer'
   | 'Fahrzeug'
-  | 'fahrzeug_fährt_strecke'
   | 'Haltestelle'
-  | 'haltestelle_wird_bedient_laut_strecke'
   | 'Strecke'
-  | 'strecke_erfordert_ticket'
   | 'Ticket'
+  | 'fahrzeug_fährt_strecke'
+  | 'haltestelle_wird_bedient_laut_strecke'
+  | 'strecke_erfordert_ticket'
+
+export type FunkelEntity = FunkelDriver | FunkelVehicle | FunkelStop | FunkelRoute | FunkelTicket
 
 
 export type FunkelDriver = {
-  Mitarbeiternummer: number,
-  Vorname: string,
-  Nachname: string,
-  Postleitzahl: string,
-  Straßenname: string,
-  Ort: string,
-  Telefonnummer: string,
+  id: number,
+  nameFirst: string,
+  nameLast: string,
+  street: string,
+  postalCode: string,
+  locality: string,
+  phone: string,
+  getVehicle: () => Promise<FunkelVehicle | undefined>,
 }
 
 export type FunkelVehicle = {
-  Kennzeichen: string,
-  Typ: string,
-  Personenzahl: string,
+  id: string,
+  type: string,
+  capacity: string,
+  getDriver: () => Promise<FunkelDriver | undefined>,
+  getRoute: () => Promise<FunkelRoute | undefined>,
 }
 
 export type FunkelStop = {
-  Koordinaten: string[],
-  Name: string,
-  Richtung: string,
+  coords: string,
+  name: string,
+  direction: string,
+  getRoute: () => Promise<FunkelRoute | undefined>,
 }
 
 export type FunkelRoute = {
-  Nummer: number,
-  Name: string,
+  id: number,
+  name: string,
+  getVehicle: () => Promise<FunkelVehicle | undefined>,
+  getStops: () => Promise<FunkelStop[] | undefined>,
+  getTickets: () => Promise<FunkelTicket[] | undefined>,
 }
 
 export type FunkelTicket = {
-  Bezeichnung: string,
-  Preis: number,
-  Tarifregion: string,
+  name: string,
+  price: number,
+  region: string,
+  getRoute: () => Promise<FunkelRoute | undefined>,
 }

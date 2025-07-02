@@ -28,10 +28,11 @@ export default tseslint.config(
       ...eslintPluginReactRefresh.configs.vite.rules,
       '@typescript-eslint/no-unused-vars': 'off',
       '@stylistic/no-extra-semi': 'warn',
+      '@typescript-eslint/no-explicit-any' : 'off',
       '@stylistic/comma-dangle': ['warn', {
         arrays: 'always-multiline',
         objects: 'always-multiline',
-        imports: 'never',
+        imports: 'always-multiline',
         exports: 'never',
         functions: 'never',
         importAttributes: 'never',

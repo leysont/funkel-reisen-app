@@ -5,19 +5,23 @@ import { DbService } from '../DbService'
 function Home(): React.ReactElement | null {
 
   useEffect(() => {
-    DbService.getTable('Busfahrer').then((value) => {
+    DbService.getDrivers().then((value) => {
       console.log('Busfahrer')
       console.log(value)
     })
-    DbService.getTable('Fahrzeug').then((value) => {
+    DbService.getVehicles().then((value) => {
       console.log('Fahrzeug')
       console.log(value)
     })
-    DbService.getTable('Ticket').then((value) => {
+    DbService.getRoutes().then((value) => {
+      console.log('Strecke')
+      console.log(value)
+    })
+    DbService.getTickets().then((value) => {
       console.log('Ticket')
       console.log(value)
     })
-    DbService.getTable('Haltestelle').then((value) => {
+    DbService.getStops().then((value) => {
       console.log('Haltestelle')
       console.log(value)
     })

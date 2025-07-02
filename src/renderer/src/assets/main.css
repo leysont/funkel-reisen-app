@@ -209,6 +209,14 @@ code {
   button, input, textarea, select, a, label, iframe, video, audio {
     app-region: no-drag;
   }
+
+  .btn-toolbar {
+    @apply flex gap-3 items-center justify-center rounded-xl text-mocha-text opacity-50 hover:opacity-100 p-1;
+  }
+
+  button {
+    @apply transition-all cursor-pointer;
+  }
 }
 
 @theme {
